@@ -1,9 +1,4 @@
 
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 import random
 import sys
 import time

@@ -24,6 +24,7 @@ def startGame(event):
 
 def Display(i,j):
   pos.config(text ="You are at: ["+str(i)+","+str(j)+"]")
+  e.focus_set() 
   
 def countdown(): 
     global hp, timeleft 
@@ -47,8 +48,8 @@ def AskQues():
     global s1,s2, status, status1, timediff, hp, iq
   
     if hp>0:
+        e2.focus_set()
         Display(i,j)
-        e.focus_set() 
 
         if e.get().strip() == str(s1+s2): 
             hp += 1
@@ -87,8 +88,8 @@ def AskQues():
         e1.delete(0,tkinter.END)
         s1 = random.choice(Xs)
         s2 = random.choice(Xs)
-        label.config(text = str(s1)+" + " +str(s2)) 
-        label2.config(text = str(s1)+" x " +str(s2)) 
+        label.config(text = str(s1)+" + " +str(s2)+"  =") 
+        label2.config(text = str(s1)+" x " +str(s2)+"  =") 
         hpp.config(text = "HP: " + str(hp)) 	
         iqq.config(text = "IQ: " + str(iq)) 	
 
@@ -159,50 +160,47 @@ root.title("NERDY_MATH_GAME")
 root.geometry("700x700") 
   
 instructions = tkinter.Label(root, text = "NERDY_MATH_GAME", 
-                                      font = ('Helvetica', 20)) 
-instructions.grid(row=0,column= 0, columnspan=2)
+                                      font = ('Helvetica', 20), background = '#112F41',fg='#F2B134') 
+instructions.grid(row=0,column= 1, columnspan=200)
   
 scoreLabel = tkinter.Label(root, text = "Press enter to start", 
-                                      font = ('Helvetica', 12)) 
+                                      font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F') 
 scoreLabel.grid(row = 1, column= 1, columnspan = 25) 
   
 timeLabel = tkinter.Label(root, text = "Time elapsed: " +
-              str(timeleft), font = ('Helvetica', 12)) 
+              str(timeleft), font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F') 
                 
 timeLabel.grid(row = 1, column=0)
   
-label = tkinter.Label(root, text = "______" ,font = ('Helvetica', 12)) 
-label.grid(row = 2, column = 4) 
+label = tkinter.Label(root, text = "______  =" ,font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F') 
+label.grid(row = 2, column = 4, padx = (10,10)) 
 
-label2 = tkinter.Label(root,text = "______" , font = ('Helvetica', 12)) 
-label2.grid(row = 4, column = 4)
+label2 = tkinter.Label(root,text = "______  =" , font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F') 
+label2.grid(row = 4, column = 4, padx = (10,10))
 
-plus =tkinter.Label(root, text = "=", font = ('Helvetica', 12))
-plus.grid(row=4, column=5) 
   
-Dir =tkinter.Label(root, text = "DIR =", font = ('Helvetica', 16))
+Dir =tkinter.Label(root, text = "DIR =", font = ('Helvetica', 16), background = '#112F41',fg='#4FB99F')
 Dir.grid(row=2, column=0) 
 e = tkinter.Entry(root) 
 e1 = tkinter.Entry(root) 
 e2 = tkinter.Entry(root) 
-plus =tkinter.Label(root, text = "=", font = ('Helvetica', 12))
-plus.grid(row=2, column=5)
-stat = tkinter.Label(root, text = "", font = ('Helvetica', 12))
+stat = tkinter.Label(root, text = "", font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F')
 stat.grid(row=3, column=3)
-stat1 = tkinter.Label(root, text = "", font = ('Helvetica', 12))
+stat1 = tkinter.Label(root, text = "", font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F')
 stat1.grid(row=5, column=3)
-pos = tkinter.Label(text = "Start position",font = ('Helvetica', 12))
+pos = tkinter.Label(text = "Start position",font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F')
 pos.grid(row = 7, column = 1)
-hpp = tkinter.Label(root, text = "HP = ", font = ('Helvetica', 12))
+hpp = tkinter.Label(root, text = "HP = ", font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F')
 hpp.grid(row = 7, column = 0)
-iqq = tkinter.Label(root, text = "IQ = ", font = ('Helvetica', 12))
+iqq = tkinter.Label(root, text = "IQ = ", font = ('Helvetica', 12), background = '#112F41',fg='#4FB99F')
 iqq.grid(row = 8, column = 0)
 root.bind('<Return>',startGame) 
-e.grid(row = 2, column = 6) 
 e1.grid(row = 4, column = 6) 
 e2.grid(row=2,column=1)
-  
+e.grid(row = 2, column = 6) 
+root.configure(background='#112F41')
 
+               
 e.focus_set() 
 e1.focus_set()
 e2.focus_set()

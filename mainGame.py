@@ -35,7 +35,7 @@ def countdown():
             hp-=1
             
        
-        timeLabel.config(text = "Time left: "
+        timeLabel.config(text = "Time elapsed: "
                                + str(timeleft)) 
         
         hpp.config(text = "HP: " + str(hp)) 	
@@ -45,6 +45,7 @@ def countdown():
    
 
 def AskQues():
+    
     global s1,s2, status, status1, timediff, hp, iq
   
     if hp>0:
@@ -81,6 +82,10 @@ def AskQues():
             iq -=1
             status1 = "ANS IS WRONG"
             e2.focus_set()  
+        
+        if hp<=0:
+            win=tkinter.Label(root,text="ded",font = ('Helvetica', 200))
+            win.grid(row=0, rowspan = 10,column=0,columnspan=10)
           
         stat.config(text = status)
         stat1.config(text = status1)
@@ -92,7 +97,6 @@ def AskQues():
         label2.config(text = str(s1)+" x " +str(s2)+"  =") 
         hpp.config(text = "HP: " + str(hp)) 	
         iqq.config(text = "IQ: " + str(iq)) 	
-
 def checkmax():
     global i,j
     if i>9:
@@ -148,9 +152,6 @@ def Forward(iq,hp):
             Dir.config(text = "ENTER DIR = ")
             e2.focus_set()
             Advance(e2.get().strip())
-    if hp<=0:
-        win=tkinter.Label(root,text="ded",font = ('Helvetica', 200))
-        win.grid(row=0, rowspan = 10,column=0,columnspan=10)
       
 
 root = tkinter.Tk() 
